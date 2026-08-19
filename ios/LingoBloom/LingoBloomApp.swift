@@ -2,24 +2,13 @@ import SwiftUI
 
 @main
 struct LingoBloomApp: App {
+    @State private var store = LearningStore()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LingoBloomRootView()
+                .environment(store)
+                .preferredColorScheme(.light)
         }
-    }
-}
-
-struct ContentView: View {
-    var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "sparkles")
-                .font(.largeTitle)
-            Text("Your app is ready.")
-                .font(.title)
-                .fontWeight(.semibold)
-            Text("Ask 10x to start building.")
-                .foregroundStyle(.secondary)
-        }
-        .padding()
     }
 }
